@@ -1,40 +1,26 @@
 %{
-NetStation GrandAverage import to ERPLab
+NetStation average import to ERPLAB
 
-This is most needed when you are trying to create plots using ERPLab plots
-instead of plotting in NetStation.
+This script takes averaged ERPs (individual or grand average) generated within NetStation and converts them
+to the .erp format used by ERPLAB. This process will then allow the use of ERPLAB functions to plot the
+ERP data or take measurements on the waveforms.
 
-This script only works with NetStation File Export 
+To import NetStation data using this script, you must first export your data from NetStation using the
+NetStation File Export tool. Use the following settings in the File Export tool:
     Format: MATLAB MAT-file
     Name: Replace Extension with ".mat"
 
-You will need to know your epoch limits!
+To import the resulting .MAT format data into ERPLAB you will need to know your original epoch limits from
+NetStation (e.g., -100 to 500 ms)!
 
-After running script and then loading your ERPset, you will need to give your ERPset 
-file channel location information by:
-    Go to ERPLAB -> Plot ERP -> Load ERP channel location info using EEG
-    
-    If you get a box "look up channel locations?" select cancel
-    
-    In the "edit channel info--popchanedit()" box select "read locations",
-    which is bottom left
-    
-    Then, browse to Glacier_Storage -> GL_Lab_Business -> labcode
-    ->GSN-HydroCel-129_mod_VREF.sfp and press open
+After running this script and loading your ERPset, you will need to give your ERPset 
+file channel location information before plotting. The specific method for doing so will
+vary as a function of what cap style you used for data collection.
 
-    It will ask you to select a file format select "autodetect" press ok
-
-    Channel information should be filled in now so Press "ok"
-
-You are done! Happy plotting!
+Happy plotting!
     
 Author: Ahren Fitzroy (University of Massachusetts, Amherst)
 %}
-
-
-
-
-
 
 function [] = nsavg2erplab()
 
